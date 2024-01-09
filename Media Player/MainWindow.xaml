@@ -1,0 +1,38 @@
+﻿<Window x:Class="Media_Player.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Media_Player"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Audio">
+                <StackPanel Margin="10">
+                    <WrapPanel>
+                        <Button x:Name="btnWybierz" Click="btnWybierz_Click" Content="Wybierz utwór" Padding="5" Margin="20.10"/>
+                        <TextBlock x:Name="txtUtwor" Text="" MinWidth="150" Margin="10"/>
+                        <TextBlock x:Name="txtCzas" Text="" Foreground="Blue" Margin="10"/>
+                    </WrapPanel>
+                    <Grid>
+                        <ProgressBar x:Name="pbGra" Margin="20" Height="20"/>
+                        <TextBlock Text="{Binding ElementName=pbGra, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Button x:Name="btnPlay" Click="btnPlay_Click" Content="Play" Margin="10" Padding="5" Width="50" ToolTip="Odtwórz" IsEnabled="False"/>
+                        <Button x:Name="btnPause" Click="btnPause_Click" Content="Pause" Margin="10" Padding="5" Width="50" ToolTip="Przerwij" IsEnabled="False"/>
+                        <Button x:Name="btnStop" Click="btnStop_Click" Content="Stop" Margin="10" Padding="5" Width="50" ToolTip="Zakończ" IsEnabled="False"/>
+                    </WrapPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Ustawienia">
+                <StackPanel>
+                    <Label x:Name="lblKolor" Content="Wybierz kolor"/>
+                    <RadioButton Content="Niebieski" Checked="radio_Checked" IsChecked="True"/>
+                    <RadioButton Content="Zielony" Checked="radio_Checked"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
